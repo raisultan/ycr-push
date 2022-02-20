@@ -1,12 +1,12 @@
-### DESCRIPTION
+### Description
 Push your docker images to YCR using Github Actions.
 
-### CONSTANTS
-- KEY_JSON: path to json file with service account key
-- CLOUD_ID: cloud id
-- FOLDER_ID: folder id
+### Variables Required
+`KEY_JSON` - path to json file with service account key
+`CLOUD_ID` - cloud id
+`FOLDER_ID` - folder id
 
-### COMMANDS USED
+### Commands Used
 ```bash
 # installation
 $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
