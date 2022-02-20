@@ -2,9 +2,9 @@
 Push your docker images to Yandex Container Registry using Github Actions.
 
 ### Variables Required
-<mark>KEY_JSON</mark> - path to json file with service account key
-<mark>CLOUD_ID</mark> - cloud id
-<mark>FOLDER_ID</mark> - folder id
+1. `KEY_JSON` - path to json file with service account key
+2. `CLOUD_ID` - cloud id
+3. `FOLDER_ID` - folder id
 
 ### Commands Used
 ```bash
