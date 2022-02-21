@@ -6,18 +6,6 @@ then
     exit 1
 fi
 
-if [[ -z ${CLOUD_ID} ]]
-then
-    echo "CLOUD_ID was not provided"
-    exit 1
-fi
-
-if [[ -z ${FOLDER_ID} ]]
-then
-    echo "FOLDER_ID was not provided"
-    exit 1
-fi
-
 if [[ -z ${REGISTRY_ID} ]]
 then
     echo "REGISTRY_ID was not provided"
@@ -42,12 +30,20 @@ then
     exit 1
 fi
 
+if [[ -z ${DOCKERFILE_CONTEXT} ]]
+then
+    dockerfile_context="."
+else
+    dockerfile_context=${DOCKERFILE_CONTEXT}
+fi
+
 echo "${KEY_JSON}" > key.json
 
-/$HOME/yandex-cloud/bin/yc config set service-account-key key.json
-/$HOME/yandex-cloud/bin/yc config set cloid-id ${CLOUD_ID}
-/$HOME/yandex-cloud/bin/yc config set folder-id ${FOLDER_ID}
+# login
+cat key.json | docker login --username json_key --password-stdin cr.yandex
+
+# build
+docker build -t cr.yandex/${REGISTRY_ID}/${IMAGE_NAME}:${IMAGE_TAG} -f ${DOCKERFILE_PATH} ${dockerfile_context}
  
-docker build -t cr.yandex/${REGISTRY_ID}/${IMAGE_NAME}:${IMAGE_TAG} -f ${DOCKERFILE_PATH} .
- 
+# push
 docker push cr.yandex/${REGISTRY_ID}/${IMAGE_NAME}:${IMAGE_TAG}
