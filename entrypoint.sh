@@ -42,7 +42,7 @@ then
     exit 1
 fi
 
-echo ${KEY_JSON} > key.json
+echo "${KEY_JSON}" > key.json
 
 yc config set service-account-key key.json
 yc config set cloid-id ${CLOUD_ID}
