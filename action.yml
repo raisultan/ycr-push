@@ -1,0 +1,8 @@
+name: Yandex Container Registry (YCR) Push
+description: Github Action pushing Docker images to Yandex Container Registry (YCR)
+branding:
+    icon: circle
+    color: dark
+runs:
+    using: "docker"
+    image: "Dockerfile"
