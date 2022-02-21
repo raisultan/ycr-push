@@ -44,9 +44,9 @@ fi
 
 echo "${KEY_JSON}" > key.json
 
-yc config set service-account-key key.json
-yc config set cloid-id ${CLOUD_ID}
-yc config set folder-id ${FOLDER_ID}
+/$HOME/yandex-cloud/bin/yc config set service-account-key key.json
+/$HOME/yandex-cloud/bin/yc config set cloid-id ${CLOUD_ID}
+/$HOME/yandex-cloud/bin/yc config set folder-id ${FOLDER_ID}
  
 docker build -t cr.yandex/${REGISTRY_ID}/${IMAGE_NAME}:${IMAGE_TAG} -f ${DOCKERFILE_PATH} .
  
