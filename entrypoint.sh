@@ -1,5 +1,8 @@
 # !/bin/bash -e
 
+echo "CONTENTS"
+ls -a
+
 if [[ -z ${KEY_JSON} ]]
 then
     echo "KEY_JSON was not provided"
