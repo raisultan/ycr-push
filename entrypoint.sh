@@ -1,4 +1,4 @@
-# !/bin/bash -e
+#!/bin/bash
 
 if [[ -z ${KEY_JSON} ]]
 then
